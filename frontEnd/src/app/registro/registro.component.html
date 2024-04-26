@@ -1,0 +1,175 @@
+<div class="container-fluid">
+    <div class="row mx-auto justify-content-center mt-5">
+        <div class="col-lg-2 text-center">
+            <img src="../../assets/login.png" alt="login.png" width="" height="200px">
+        </div>
+    </div>
+    <div class="row mx-auto justify-content-center mb-5">
+        <div class="col-lg-6 mb-5">
+            <form>
+                <div class="form-group row justify-content-center mx-auto mt-5">
+                    <label for="nombre_usuario" class="col-form-label text-center">Nombre de usuario</label>
+                    <div class="col-lg-10">
+                        <input type="text" id="nombre_usuario" name="nombre_usuario" class="form-control"
+                            placeholder="ingresa tu nombre de usuario..." [(ngModel)]="user.username">
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10 text-center" *ngFor="let error of errors">
+                            <p *ngIf="error.includes('username')" class="text-danger">{{error}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row justify-content-center mx-auto mt-5">
+                    <label for="name" class="col-form-label text-center">Nombre</label>
+                    <div class="col-lg-10">
+                        <input type="text" id="name" name="name" class="form-control"
+                            placeholder="ingresa tu nombre..." [(ngModel)]="user.firstname">
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10 text-center" *ngFor="let error of errors">
+                            <p *ngIf="error.includes('nombre')" class="text-danger">{{error}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row justify-content-center mx-auto mt-5">
+                    <label for="lastname" class="col-form-label text-center">Apellido</label>
+                    <div class="col-lg-10">
+                        <input type="text" id="lastname" name="lastname" class="form-control"
+                            placeholder="ingresa tu apellido..." [(ngModel)]="user.lastname">
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10 text-center" *ngFor="let error of errors">
+                            <p *ngIf="error.includes('nombre')" class="text-danger">{{error}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row justify-content-center mx-auto mt-3">
+                    <label for="contrasena" class="col-form-label  text-center">Contraseña</label>
+                    <div class="col-lg-10">
+                        <input type="password" id="contrasena" name="contrasena" class="form-control"
+                            placeholder="ingresa tu contraseña..." [(ngModel)]="user.password">
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10 text-center" *ngFor="let error of errors">
+                            <p *ngIf="error.includes('contraseña')" class="text-danger">{{error}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row justify-content-center  mx-auto mt-3">
+                    <label for="email" class="col-form-label  text-center">Email</label>
+                    <div class="col-lg-10">
+                        <input type="email" id="email" name="email" class="form-control"
+                            placeholder="ingresa tu email..." [(ngModel)]="user.email">
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10 text-center" *ngFor="let error of errors">
+                            <p *ngIf="error.includes('email')" class="text-danger">{{error}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row mt-4 justify-content-center">
+                    <div class="">
+                        <button class="btn btn-dark mx-auto d-block" (click)="registerNewUser()">Registrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!--<div class="container">
+    <div class="row mx-auto justify-content-start align-items-center">
+        <div class="col-8">
+            <div class="col-10">
+                <h1 class="text-center">asdjkajsdaksjdlksadsjdajlsdlkkajslkds asdajsdjkasjdlklkd</h1>
+            </div>
+        </div>
+        <div class="col-4 text-center mt-4 p-3">
+            <form>
+                <div class="form-group mx-auto">
+                    <label for="nombre_usuario" class="col-form-label">Nombre de usuario</label>
+                    <div class="col-lg-12">
+                        <input type="text" id="nombre_usuario" name="nombre_usuario" class="form-control"
+                            placeholder="ingresa tu nombre de usuario..." [(ngModel)]="user.username">
+                    </div>
+                    <div class="col" *ngFor="let error of errors">
+                        <p *ngIf="error.includes('username')" class="text-danger">{{error}}</p>
+                    </div>
+                </div>
+
+                <div class="form-group mx-auto bg-seondary">
+                    <label for="nombre" class="col-form-label">Nombre</label>
+                    <div class="col-lg-12">
+                        <input type="text" id="nombre" name="nombre" class="form-control"
+                            placeholder="ingresa tu nombre..." [(ngModel)]="user.firstname">
+                    </div>
+                    <div class="col" *ngFor="let error of errors">
+                        <p *ngIf="error.includes('nombre')" class="text-danger">{{error}}</p>
+                    </div>
+                </div>
+
+                <div class="form-group mx-auto bg-seondary">
+                    <label for="apellido" class="col-form-label">Apellido</label>
+                    <div class="col-lg-12">
+                        <input type="text" id="apellido" name="apellido" class="form-control"
+                            placeholder="ingresa tu apellido..." [(ngModel)]="user.lastname">
+                    </div>
+                    <div class="col" *ngFor="let error of errors">
+                        <p *ngIf="error.includes('apellido')" class="text-danger">{{error}}</p>
+                    </div>
+             <form>
+                <div class="form-group mx-auto">
+                    <label for="nombre_usuario" class="col-form-label">Nombre de usuario</label>
+                    <div class="col-lg-12">
+                        <input type="text" id="nombre_usuario" name="nombre_usuario" class="form-control"
+                            placeholder="ingresa tu nombre de usuario..." [(ngModel)]="user.username">
+                    </div>
+                    <div class="col" *ngFor="let error of errors">
+                        <p *ngIf="error.includes('username')" class="text-danger">{{error}}</p>
+                    </div>
+                </div>
+
+                <div class="form-group mx-auto bg-seondary">
+                    <label for="nombre" class="col-form-label">Nombre</label>
+                    <div class="col-lg-12">
+                        <input type="text" id="nombre" name="nombre" class="form-control"
+                 </div>
+
+                <div class="form-group mx-auto bg-seondary">
+                    <label for="email" class="col-form-label">Email</label>
+                    <div class="col-lg-12">
+                        <input type="email" id="email" name="email" class="form-control"
+                            placeholder="ingresa tu email..." [(ngModel)]="user.email">
+                    </div>
+                    <div class="col" *ngFor="let error of errors">
+                        <p *ngIf="error.includes('email')" class="text-danger">{{error}}</p>
+                    </div>
+                </div>
+
+                <div class="form-group mx-auto bg-seondary">
+                    <label for="contrasena" class="col-form-label">Contraseña</label>
+                    <div class="col-lg-12">
+                        <input type="password" id="contrasena" name="contrasena" class="form-control"
+                            placeholder="ingresa tu contraseña..." [(ngModel)]="user.password">
+                    </div>
+                    <div class="col" *ngFor="let error of errors">
+                        <p *ngIf="error.includes('contraseña')" class="text-danger">{{error}}</p>
+                    </div>
+                </div>
+
+                <div class="form-group row mt-4 justify-content-center">
+                    <div class="">
+                        <button class="btn btn-dark mx-auto d-block" (click)="registerNewUser()">Registrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>-->

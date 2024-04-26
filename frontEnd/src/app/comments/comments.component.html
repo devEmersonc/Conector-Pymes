@@ -1,0 +1,44 @@
+<div class="container mb-5">
+    <div class="row mt-5">
+        <div class="col-lg-6 p-4">
+            <div class="col-lg-12">
+                <div class="col-lg-12 text-center mb-3">
+                    <h4 class="p-3">{{pyme.name}}</h4>
+                </div>
+                <div class="col-lg-12">
+                    <img *ngIf="pyme?.photo" src="http://localhost:8080/api/pyme/view/image/{{pyme.photo}}" alt="image.png" width="100%" height="350px">
+                    <img *ngIf="!pyme?.photo" src="../../assets/no_image.png" alt="image.png" width="100%" height="350px">
+                </div>
+                <div class="col-lg-12 p-3 mt-4">
+                    <h3>Descripción :</h3>
+                    <p class="text-center" style="line-height: 30px; font-size: 16px;">
+                        {{pyme.description}}
+                    </p>
+                </div>
+            </div>           
+        </div>
+        <div class="col-lg-6 p-4">
+            <div class="col-lg-12">
+                <div class="col-lg-12">
+                    <h4 class="p-3" style="border-bottom: 1px solid rgb(59, 58, 58);">Comentarios</h4>
+                </div>
+                <div  class="col-lg-12 mt-3" style="height: 350px; overflow: hidden; overflow-y: scroll; border-bottom: 1px solid rgb(59, 58, 58);">
+                    <div *ngFor="let comment of pyme.comments">                        
+                        <p class="p-3">{{comment.comment}}</p>                    
+                    </div>                    
+                </div>
+                <div class="col-lg-12" *ngIf="isConnected()">
+                    <div class="form-group mt-3">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Agrega un comentario..." rows="3" style="resize: none;" [(ngModel)]="comments.comment"></textarea>                    
+                    </div>
+                    <div class="col-lg-12 position-relative mb-5 mt-2">
+                        <button class="btn bg-white position-absolute top-0 end-0" (click)="createMessage()">Publicar</button>
+                    </div>
+                </div>
+            </div>                    
+        </div>
+    </div>
+</div>
+
+
+<!--comentario-->

@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <div class="row mx-auto justify-content-center mt-5">
+        <div class="col-lg-2 text-center">
+            <img src="../../assets/login.png" alt="login.png" width="" height="200px">
+        </div>        
+    </div>
+    <div class="row mx-auto justify-content-center mb-5">
+        <div class="col-lg-6 mb-5">
+            <form (ngSubmit)="formlogin()">
+                <div class="form-group justify-content-center row mt-4 mx-auto">
+                    <label for="username" class="col-form-label text-center">Nombre de usuario</label>
+                    <div class="col-lg-10">
+                        <input type="text" id="username" name="username" class="form-control" placeholder="ingresa tu nombre de usuario..." [(ngModel)]="loginData.username">
+                    </div>
+                </div>
+                <div class="form-group justify-content-center row mt-4 mx-auto">
+                    <label for="contrasena" class="col-form-label text-center">Contraseña</label>
+                    <div class="col-lg-10">
+                        <input type="password" id="contrasena" name="contrasena" class="form-control" placeholder="ingresa tu contraseña..." [(ngModel)]="loginData.password">
+                    </div>
+                    <div *ngFor="let error of errors">
+                        <p *ngIf="error.includes('Credenciales')" class="text-danger text-center">{{error}}</p>
+                    </div>
+                </div>
+                <div class="form-group row mt-5 mx-auto">
+                    <div>
+                        <button class="btn btn-dark mx-auto d-block">Iniciar sesión</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

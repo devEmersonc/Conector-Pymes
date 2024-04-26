@@ -1,0 +1,68 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2 min-vh-100" style="background-color: #151521;">
+            <app-sidenav></app-sidenav>
+        </div>
+        <div class="col content">
+            <div class="row row-nowarp mx-auto mb-5">
+                <div class="col-lg-4 mx-auto m-4 bg-white mb-5">
+                    <h5 class="p-3 title">Detalles del perfil</h5>
+                    <div class="col text-center mt-4">
+                        <img *ngIf="user?.photo" src="http://localhost:8080/api/users/view/image/{{user.photo}}" alt="male.png" style="width: 250px; height: 250px; border-radius: 200px;">
+                        <img *ngIf="!user?.photo" src="../../assets/user.png" alt="user.png" width="250px" height="250px">
+                    </div>
+                    <div class="input-group mb-3 mt-4">
+                        <input (change)="selectImage($event)" type="file" class="form-control" id="inputGroupFile02">
+                    </div>
+                    <div class="input-group-append">
+                        <button [disabled]="!selectImage" (click)="uploadImage()" class="btn btn-outline-secondary mx-auto d-flex d-block"
+                            type="button" id="inputGroupFile02">Subir foto</button>
+                    </div>
+                    <div class="col p-3 info mt-5">
+                        <h6 class="mt-2 mb-4">{{user.firstname}} {{user.lastname}}</h6>
+                        <p>
+                            <span>Usuario desde: {{user.createdAt}}</span>
+                        </p>
+                        <p>
+                            <span>{{user.email}}</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6 bg-white m-4 mx-auto mb-5">
+                    <div class="div" *ngFor="let error of errors">
+                        <p>{{error}}</p>
+                    </div>
+                    <h5 class="p-3 text-center title">Edita tu información</h5>
+                    <form>
+                        <div class="form-group row mx-auto text-center justify-content-center mt-4">
+                            <label for="firstname" class="col-form-label">Nombre</label>
+                            <div class="col-lg-8">
+                                <input type="text" id="firstname" name="firstname" placeholder="Ingresa tu nombre..."
+                                    class="form-control text-center" [(ngModel)]="user.firstname">
+                            </div>
+                        </div>
+                        <div class="form-group row mx-auto text-center justify-content-center mt-4">
+                            <label for="lastname" class="col-form-label">Apellido</label>
+                            <div class="col-lg-8">
+                                <input type="text" id="lastname" name="lastname" placeholder="Ingresa tu apellido..."
+                                    class="text-center form-control" [(ngModel)]="user.lastname">
+                            </div>
+                        </div>
+                        <div class="form-group row mx-auto text-center justify-content-center mt-4">
+                            <label for="email" class="col-form-label">Email</label>
+                            <div class="col-lg-8">
+                                <input type="email" id="email" name="email" placeholder="Ingresa tu email..."
+                                    class="form-control text-center" [(ngModel)]="user.email">
+                            </div>
+                        </div>                        
+                        <div class="form-group row mx-auto justify-content-center mt-5">
+                            <div>
+                                <button class="btn btn-dark d-flex d-block mx-auto" (click)="updateUser()">Actualizar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

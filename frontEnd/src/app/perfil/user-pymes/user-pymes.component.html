@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2 min-vh-100" style="background-color: #151521;">
+            <app-sidenav></app-sidenav>
+        </div>
+        <div class="col content">
+            <div class="row row-nowarp mt-4 mx-auto">
+                <div class="col-lg-12 mx-auto">
+                    <div class="col text-end mb-4">
+                        <a class="btn btn-dark" [routerLink]="['/crear/pyme']">Crear pyme</a>
+                    </div>
+                    <div class="col-lg-12 mb-3" *ngIf="user.pymes.length>0">
+                        <h3 class="text-center">Gestiona tus pymes</h3>
+                    </div>
+                    <div class="row bg-white">
+                        <div class="col-lg-4 p-3" *ngFor="let pyme of user.pymes">
+                            <div class="col-lg-12 btn d-flex" (click)="redirect(pyme.id)">
+                                <img *ngIf="pyme?.photo" src="http://localhost:8080/api/pyme/view/image/{{pyme.photo}}" alt="" width="100px;" height="100px">
+                                <img *ngIf="!pyme?.photo" src="../../../assets/no_image.png" alt="" width="100px;" height="100px">
+                                <div class="col">
+                                    <h3 class="text-center">{{pyme.name}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12" *ngIf="user.pymes.length==0">
+                        <h3 class="text-center">No tienes pymes registradas</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--<div class="row row-nowarp justify-content-center">
+    <div class="col-lg-10 mx-auto mt-4 bg-white">
+        <div class="row justify-content-center mt-4" *ngFor="let pyme of user.pymes">
+            <button class="col-lg-5 column btn d-flex mb-5 bg-white" (click)="redirect(pyme.id)"
+                style="margin-right: 5px;">
+                <img src="../../../assets/pyme_test.jpg" alt="" width="100px;" height="100px">
+                <div class="col">
+                    <h3 class="text-center">{{pyme.name}}</h3>
+                </div>
+            </button>
+        </div>
+    </div>
+</div>-->

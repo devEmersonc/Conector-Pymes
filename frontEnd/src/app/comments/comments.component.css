@@ -1,0 +1,9 @@
+.row{
+    background-color: #f3f3f4;
+}
+button{
+    color: rgb(40, 40, 168);
+}
+button:hover{
+    color: #242222;
+}

@@ -1,0 +1,21 @@
+h1{
+    color: #ffffff;
+}
+.registro{
+    background-color: #fff;
+    border-radius: 5px;
+}
+.pymes{
+    background-color: #fff;
+    border-radius: 5px;
+}
+.registro:hover{
+    background-color: #ebe1e1c4;
+    color: #fff;
+    transform: scale(1);
+}
+.pymes:hover{
+    background-color: #ebe1e1c4;
+    color: #fff;
+    transform: scale(1);
+}
